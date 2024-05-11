@@ -505,20 +505,20 @@ function 配置信息(密码, 域名地址) {
 	const 指纹 = 'randomized';
 	
 	const v2ray = `${协议类型}://${encodeURIComponent(密码)}@${地址}:${端口}?security=${传输层安全[0]}&sni=${SNI}&fp=${指纹}&type=${传输层协议}&host=${伪装域名}&path=${encodeURIComponent(路径)}#${encodeURIComponent(别名)}`
-	const clash = `- type: ${协议类型}
-  name: ${别名}
+	const clash = `- name: ${别名}
   server: ${地址}
   port: ${端口}
-  password: ${密码}
-  network: ${传输层协议}
   udp: false
-  sni: ${SNI}
   client-fingerprint: ${指纹}
+  type: ${协议类型}
+  password: ${密码}
+  sni: ${SNI}
   skip-cert-verify: true
-  ws-opts:
+  network: ${传输层协议}
+  ws-opts: 
     path: "${路径}"
-    headers:
-      host: ${伪装域名}`;
+    headers: 
+      Host: ${伪装域名}`;
 	return [v2ray,clash];
 }
 
@@ -1447,7 +1447,7 @@ async function getSum(accountId, accountIndex, email, key, startDate, endDate) {
 						}
 					}
 				}
-			}`,
+			}`，
 			variables: {
 				accountId,
 				filter: { datetime_geq: startDateISO, datetime_leq: endDateISO }
