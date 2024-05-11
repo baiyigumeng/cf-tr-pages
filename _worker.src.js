@@ -515,6 +515,7 @@ function 配置信息(密码, 域名地址) {
   udp: false
   sni: ${SNI}
   client-fingerprint: ${指纹}
+  skip-cert-verify: true
   ws-opts:
     path: "${路径}"
     headers:
