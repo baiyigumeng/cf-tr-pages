@@ -511,7 +511,6 @@ function 配置信息(密码, 域名地址) {
   port: ${端口}
   password: ${密码}
   network: ${传输层协议}
-  tls: ${传输层安全[1]}
   udp: false
   sni: ${SNI}
   client-fingerprint: ${指纹}
@@ -522,7 +521,6 @@ function 配置信息(密码, 域名地址) {
       host: ${伪装域名}`;
 	return [v2ray,clash];
 }
-
 
 let subParams = ['sub','base64','b64','clash','singbox','sb','surge'];
 async function getTrojanConfig(password, hostName, sub, UA, RproxyIP, _url) {
